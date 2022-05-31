@@ -13,7 +13,7 @@ export default class Pagination2 extends LightningElement {
 
     connectedCallback(){
         if(this.totalrecordscount && this.pageSize){
-            this.totalpages = Math.round(Number(this.totalrecordscount)/Number(this.pageSize));
+            this.totalpages = Math.ceil(Number(this.totalrecordscount)/Number(this.pageSize));
             console.log(this.totalpages);
             let default_list=[];
             if(this.totalpages<=10){
