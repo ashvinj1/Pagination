@@ -1,0 +1,34 @@
+<template>
+    
+    <div class="slds-p-around_medium">
+        <table>
+            <thead>
+                <tr>
+                    <template for:each={columns} for:item="col">
+                        <th key={col.fieldName}>{col.label}</th>
+                    </template>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <template for:each={accounts} for:item="acc">
+                    <tr key={acc.Id}>
+                        <td>{acc.name}</td>
+                        <td>{acc.accountnumber}</td>
+                        <td>{acc.source}</td>
+                        <td>{acc.active}</td>
+                        <td>{acc.phone}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        
+        <div class="slds-float_right slds-size_1-of-1">
+            <template if:true={totalAccounts}>
+                <c-pagination totalrecords={totalAccounts} page-size={pageSize} onpagination={handlePagination}></c-pagination>
+            </template>
+        </div>
+    </div>
+
+    
+</template>
